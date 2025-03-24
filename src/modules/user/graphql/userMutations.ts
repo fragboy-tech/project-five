@@ -1,9 +1,4 @@
-import { Users } from "../../model/userModel";
-
-export const userSchemaMutations = `
-  register(userName: String!, password: String!, email: String! ): Boolean
-  login(email: String!, password: String!): String
-`;
+import { Users } from "../model/userModel";
 
 export const userMutations = {
   register: async (
@@ -17,5 +12,5 @@ export const userMutations = {
     args: { password: string; email: string }
   ) => {
     return await Users.login(args);
-  },
+  }
 };

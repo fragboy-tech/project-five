@@ -6,28 +6,28 @@ export const transactionSchema = new schema(
   {
     amount: {
       type: Number,
-      required: true,
+      required: true
     },
     categoryId: {
       type: String,
-      required: true,
+      required: true
     },
     date: {
       type: String,
-      required: true,
+      required: true
     },
     description: {
-      type: String,
-      required: false,
+      type: String
     },
     type: {
       type: String,
       required: true,
+      enum: ["income", "expense"]
     },
     userId: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
-  { collection: "transactions", timestamps: true }
+  { timestamps: true }
 );

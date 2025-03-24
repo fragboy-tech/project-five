@@ -10,7 +10,3 @@ export interface IUserDocument extends IUser, Document {
   createdAt?: Date;
   updatedAt?: Date;
 }
-
-export interface Context {
-  user?: IUser;
-}

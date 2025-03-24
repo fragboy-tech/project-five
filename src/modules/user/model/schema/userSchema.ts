@@ -7,16 +7,16 @@ export const userSchema = new schema(
     email: {
       type: String,
       required: true,
-      trim: true,
+      trim: true
     },
     password: {
       type: String,
-      required: true,
+      required: true
     },
     userName: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   { collection: "users", timestamps: true }
 );

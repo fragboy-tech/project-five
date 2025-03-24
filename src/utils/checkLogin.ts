@@ -1,7 +1,5 @@
-import { IUser } from "../modules/user/@types";
-
-export const checkLogin = (user?: IUser) => {
-  if (!user) {
+export const checkLogin = (userId?: string) => {
+  if (!userId) {
     throw new Error("Login!!");
   }
 };
