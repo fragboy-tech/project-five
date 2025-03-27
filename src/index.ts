@@ -1,20 +1,19 @@
-import { ApolloServer } from "@apollo/server";
 import express from "express";
 import jwt from "jsonwebtoken";
 import { expressMiddleware } from "@apollo/server/express4";
 
-import { apoloServer } from "./apollo/apolloServer";
+import { apolloServer } from "./apollo/apolloServer";
 import "./mongo-connections";
 import { getSecret } from "./utils/getSecret";
 
 const app = express();
 
 const startServer = async () => {
-  await apoloServer.start();
+  await apolloServer.start();
   app.use(
     "/graphql",
     express.json(),
-    expressMiddleware(apoloServer, {
+    expressMiddleware(apolloServer, {
       context: async ({ req, res }) => {
         const token = req.headers.authorization;
 
@@ -29,7 +28,7 @@ const startServer = async () => {
         }
 
         return { userId: null };
-      }
+      },
     })
   );
 

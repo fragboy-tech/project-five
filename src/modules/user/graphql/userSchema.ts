@@ -3,7 +3,9 @@ export const userSchemaTypes = `
     email: String 
     userName: String
 
-    test: String
+    transactionsForUser: [Transaction]
+    transactionCount: Int
+    totalAmount: Int
   }
 `;
 

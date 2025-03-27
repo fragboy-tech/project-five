@@ -1,5 +1,5 @@
 import mongoose, { Model } from "mongoose";
-import { userSchema } from "./schema/userSchema";
+import { userSchema } from "./userSchema";
 import { IUser } from "../@types";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -9,7 +9,7 @@ interface UserModel extends Model<IUser> {
   register({ email, password, userName }: IUser): Promise<Boolean>;
   login({
     email,
-    password
+    password,
   }: {
     email: string;
     password: string;
@@ -24,7 +24,7 @@ class User {
     const user = await this.create({
       userName,
       email,
-      password: hashedPassword
+      password: hashedPassword,
     });
 
     return user ? true : false;

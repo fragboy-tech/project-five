@@ -1,3 +1,3 @@
 export const getSecret = () => {
-  return process.env.SECRET || "secret";
+  return process.env.SECRET_KEY || "token";
 };

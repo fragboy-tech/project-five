@@ -4,22 +4,30 @@ import { apolloSchema } from "./graphql/schema";
 import { queries } from "./graphql/queries";
 import { mutations } from "./graphql/mutations";
 import { userResolvers } from "../modules/user/graphql/userResolver";
+import { transactionResolvers } from "../modules/transaction/graphql/transactionResolvers";
+import { categoryResolvers } from "../modules/category/graphql/categoryResolvers";
 
 const resolvers = {
   Query: {
-    ...queries
+    ...queries,
   },
 
   Mutation: {
-    ...mutations
+    ...mutations,
   },
 
   User: {
-    ...userResolvers
-  }
+    ...userResolvers,
+  },
+  Transaction: {
+    ...transactionResolvers,
+  },
+  Category: {
+    ...categoryResolvers,
+  },
 };
 
-export const apoloServer = new ApolloServer<IContext>({
+export const apolloServer = new ApolloServer<IContext>({
   typeDefs: apolloSchema,
-  resolvers
+  resolvers,
 });
